@@ -1,0 +1,313 @@
+/* ========================================
+   STACKLY — LUXURY AUTOMOTIVE 404 PAGE
+   Complete CSS | Black & Gold Theme
+======================================== */
+
+.error-page {
+  margin: 0;
+  min-height: 100vh;
+  background: #080808;
+  color: #f5f5f5;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.error-container {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  isolation: isolate;
+  padding: 35px 7%;
+  box-sizing: border-box;
+  background:
+    radial-gradient(ellipse at 78% 48%, rgba(212,175,55,.14), transparent 42%),
+    linear-gradient(115deg, #080808 20%, #15130d 100%);
+}
+
+.error-container::before {
+  content: "";
+  position: absolute;
+  width: 480px;
+  height: 480px;
+  right: -160px;
+  bottom: 5%;
+  border: 1px solid rgba(212,175,55,.2);
+  border-radius: 50%;
+  box-shadow: 0 0 80px rgba(212,175,55,.08),
+              inset 0 0 80px rgba(212,175,55,.05);
+  z-index: -1;
+}
+
+.error-container::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 23%;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #d4af3766, transparent);
+  z-index: -1;
+}
+
+/* LOGO */
+
+.error-logo {
+  display: inline-flex;
+  flex-direction: column;
+  align-self: flex-start;
+  gap: 5px;
+  color: #d4af37;
+  text-decoration: none;
+  letter-spacing: 5px;
+  font-size: 25px;
+  font-weight: 700;
+}
+
+.error-logo small {
+  color: #aaa;
+  font-size: 8px;
+  letter-spacing: 3px;
+  font-weight: 400;
+}
+
+/* CONTENT */
+
+.error-content {
+  position: relative;
+  z-index: 2;
+  max-width: 620px;
+  padding: 35px 0;
+  animation: errorReveal 1s ease both;
+}
+
+.error-eyebrow {
+  color: #d4af37;
+  font-size: 11px;
+  letter-spacing: 5px;
+  font-weight: 600;
+  margin: 0 0 15px;
+}
+
+.error-content h1 {
+  margin: 0;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(110px, 19vw, 200px);
+  line-height: .85;
+  font-weight: 500;
+  letter-spacing: -5px;
+  color: #d4af37;
+  text-shadow: 0 0 45px #d4af3720;
+}
+
+.error-content h2 {
+  margin: 25px 0 15px;
+  font-size: clamp(20px, 3vw, 32px);
+  letter-spacing: 5px;
+  font-weight: 500;
+}
+
+.error-description {
+  max-width: 430px;
+  color: #aaa;
+  font-size: 13px;
+  line-height: 2;
+  font-weight: 300;
+}
+
+/* DAMAGED CAR VISUAL */
+
+.error-car-visual {
+  position: absolute;
+  right: 3%;
+  top: 50%;
+  width: min(48%, 600px);
+  transform: translateY(-45%);
+  z-index: 0;
+  opacity: .9;
+  pointer-events: none;
+  animation: carReveal 1.4s ease both;
+}
+
+.error-car-visual svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+  filter: drop-shadow(0 0 18px #d4af3718);
+}
+
+/* BUTTONS */
+
+.error-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.error-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0 25px;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all .3s ease;
+}
+
+.error-btn:hover {
+  transform: translateY(-3px);
+}
+
+.error-btn-gold {
+  background: #d4af37;
+  border: 1px solid #d4af37;
+  color: #080808;
+}
+
+.error-btn-gold:hover {
+  background: #f0d77b;
+  border-color: #f0d77b;
+}
+
+.error-btn-outline {
+  background: transparent;
+  border: 1px solid #d4af3799;
+  color: #d4af37;
+}
+
+.error-btn-outline:hover {
+  background: #d4af371a;
+  border-color: #d4af37;
+}
+
+/* FOOTER */
+
+.error-footer {
+  position: relative;
+  z-index: 2;
+  margin: 0;
+  padding-top: 20px;
+  border-top: 1px solid #ffffff1a;
+  color: #777;
+  font-size: 9px;
+  letter-spacing: 3px;
+}
+
+/* ANIMATIONS */
+
+@keyframes errorReveal {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes carReveal {
+  from {
+    opacity: 0;
+    transform: translate(25px, -45%);
+  }
+  to {
+    opacity: .9;
+    transform: translate(0, -45%);
+  }
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
+  .error-container {
+    padding: 30px 6%;
+  }
+
+  .error-car-visual {
+    width: 52%;
+    right: -8%;
+    top: 43%;
+    opacity: .35;
+  }
+
+  .error-content {
+    max-width: 560px;
+  }
+}
+
+@media (max-width: 600px) {
+  .error-container {
+    padding: 28px 6%;
+  }
+
+  .error-content {
+    padding: 60px 0;
+  }
+
+  .error-content h1 {
+    font-size: clamp(105px, 30vw, 160px);
+  }
+
+  .error-content h2 {
+    letter-spacing: 3px;
+    font-size: 21px;
+  }
+
+  .error-eyebrow {
+    letter-spacing: 3px;
+    font-size: 9px;
+  }
+
+  .error-description {
+    font-size: 12px;
+  }
+
+  .error-car-visual {
+    width: 100%;
+    right: -22%;
+    top: 38%;
+    opacity: .2;
+  }
+
+  .error-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .error-btn {
+    width: 100%;
+  }
+
+  .error-footer {
+    font-size: 8px;
+    letter-spacing: 2px;
+    line-height: 1.8;
+  }
+
+  .error-container::before {
+    width: 300px;
+    height: 300px;
+    right: -170px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .error-content,
+  .error-car-visual {
+    animation: none;
+  }
+
+  .error-btn {
+    transition: none;
+  }
+}

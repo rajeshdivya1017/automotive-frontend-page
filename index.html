@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>STACKLY | Luxury Automotive</title>
+  <meta name="description" content="Discover luxury automobiles, premium automotive services and exceptional experiences at STACKLY.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- PRELOADER -->
+  <div class="preloader" id="preloader">
+    <div class="preloader-content">
+      <p class="preloader-brand">STACKLY</p>
+      <p class="preloader-tagline">THE ART OF AUTOMOTIVE EXCELLENCE</p>
+
+      <div class="road">
+        <div class="light-trail"></div>
+        <div class="car">
+          <svg viewBox="0 0 220 90" role="img" aria-label="Animated car">
+            <path d="M18 59 L30 45 L66 38 L91 15 L151 15 L181 42 L203 49 L211 63 L211 72 L9 72 L9 62 Z" fill="#D4AF37"/>
+            <path d="M72 37 L96 20 L119 20 L119 37 Z" fill="#101010"/>
+            <path d="M126 20 L149 20 L170 40 L126 37 Z" fill="#101010"/>
+            <path d="M30 48 L63 43 L62 54 L22 56 Z" fill="#F5D778"/>
+            <path d="M181 47 L202 53 L205 59 L184 58 Z" fill="#F5D778"/>
+            <circle cx="52" cy="70" r="15" fill="#080808" stroke="#D4AF37" stroke-width="4"/>
+            <circle cx="52" cy="70" r="6" fill="#B7B7B7"/>
+            <circle cx="171" cy="70" r="15" fill="#080808" stroke="#D4AF37" stroke-width="4"/>
+            <circle cx="171" cy="70" r="6" fill="#B7B7B7"/>
+          </svg>
+        </div>
+      </div>
+
+      <div class="loading-info">
+        <span>PREPARING YOUR EXPERIENCE</span>
+        <span id="percentage">0%</span>
+      </div>
+
+      <div class="progress-track">
+        <div id="progressBar"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- WEBSITE -->
+  <div class="website" id="website">
+
+    <!-- NAVIGATION -->
+    <header class="navbar">
+      <a href="index.html" class="logo" aria-label="STACKLY Home">
+        <span class="logo-name">STACKLY</span>
+        <span class="logo-caption">LUXURY AUTOMOTIVE</span>
+      </a>
+
+      <button class="menu-toggle" id="menuToggle"
+        aria-label="Open navigation menu"
+        aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="nav-menu" id="navMenu" aria-label="Main navigation">
+        <a href="index.html" class="nav-link active">Home</a>
+        <a href="collections.html" class="nav-link">Collections</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="services.html" class="nav-link">Services</a>
+        <a href="news.html" class="nav-link">News</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+
+        <a href="login.html" class="login-button">
+          <span>Login</span>
+          <span aria-hidden="true">↗</span>
+        </a>
+      </nav>
+    </header>
+
+    <main>
+
+      <!-- 01. HOME -->
+      <section class="hero" id="home">
+        <div class="hero-overlay"></div>
+
+        <div class="hero-content">
+          <p class="eyebrow">THE FUTURE OF LUXURY DRIVING</p>
+
+          <h1>Drive Beyond<br><span>Ordinary.</span></h1>
+
+          <p class="hero-description">
+            Discover extraordinary automobiles where timeless design,
+            powerful performance and refined luxury meet.
+          </p>
+
+          <div class="hero-actions">
+            <a href="404.html" class="btn btn-gold">
+              Explore Models <span aria-hidden="true">↗</span>
+            </a>
+
+            <a href="404.html" class="btn btn-outline">
+              Discover STACKLY
+            </a>
+          </div>
+
+          <div class="hero-bottom">
+            <span>EXCEPTIONAL DESIGN</span>
+            <span class="hero-line"></span>
+            <span>UNCOMPROMISING PERFORMANCE</span>
+          </div>
+        </div>
+
+        <a href="#featured-cars" class="scroll-indicator">
+          <span>SCROLL TO EXPLORE</span>
+          <span aria-hidden="true">↓</span>
+        </a>
+      </section>
+
+      <!-- 02. FEATURED COLLECTIONS -->
+      <section class="featured-section section-padding" id="featured-cars">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">CURATED EXCELLENCE</p>
+            <h2>Featured <span>Collections</span></h2>
+          </div>
+
+          <a href="404.html" class="text-link">
+            View All Models <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+
+        <p class="section-description">
+          A selection of remarkable machines chosen for their design,
+          craftsmanship and driving character.
+        </p>
+
+        <div class="car-grid">
+
+          <article class="car-card">
+            <div class="car-image">
+              <img src="images/mercedes-benz.webp"
+                alt="Mercedes-Benz luxury automobile"
+                loading="lazy">
+              <span class="car-number">01 / COLLECTION</span>
+            </div>
+
+            <div class="car-card-content">
+              <p class="car-category">TIMELESS LUXURY</p>
+              <h3>Mercedes-Benz</h3>
+              <p>Elegant design. Refined comfort. A distinctive presence.</p>
+              <a href="404.html" class="text-link">Discover Model ↗</a>
+            </div>
+          </article>
+
+          <article class="car-card">
+            <div class="car-image">
+              <img src="images/bmw.webp"
+                alt="BMW performance automobile"
+                loading="lazy">
+              <span class="car-number">02 / COLLECTION</span>
+            </div>
+
+            <div class="car-card-content">
+              <p class="car-category">PURE PERFORMANCE</p>
+              <h3>BMW</h3>
+              <p>Dynamic engineering created for an engaging drive.</p>
+              <a href="404.html" class="text-link">Discover Model ↗</a>
+            </div>
+          </article>
+
+          <article class="car-card">
+            <div class="car-image">
+              <img src="images/porsche.webp"
+                alt="Porsche sports automobile"
+                loading="lazy">
+              <span class="car-number">03 / COLLECTION</span>
+            </div>
+
+            <div class="car-card-content">
+              <p class="car-category">SPORTING EXCELLENCE</p>
+              <h3>Porsche</h3>
+              <p>Iconic proportions and performance-inspired character.</p>
+              <a href="404.html" class="text-link">Discover Model ↗</a>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+      <!-- 03. OUR BRAND PARTNERS -->
+      <section class="partners-section" id="brand-partners">
+        <div class="partners-heading">
+          <p class="eyebrow">A WORLD OF AUTOMOTIVE EXCELLENCE</p>
+          <h2>Our Brand <span>Partners</span></h2>
+          <p>
+            Celebrating the design, innovation and performance
+            of renowned automotive marques.
+          </p>
+        </div>
+
+        <div class="partners-marquee">
+          <div class="partners-track">
+
+            <div class="partner-logo">
+              <img src="images/mercedes-logo.svg" alt="Mercedes-Benz">
+            </div>
+
+            <div class="partner-logo">
+              <img src="images/bmw-logo.svg" alt="BMW">
+            </div>
+
+            <div class="partner-logo">
+              <img src="images/porsche-logo.svg" alt="Porsche">
+            </div>
+
+            <div class="partner-logo">
+              <img src="images/audi-logo.svg" alt="Audi">
+            </div>
+
+            <div class="partner-logo">
+              <img src="images/lexus-logo.svg" alt="Lexus">
+            </div>
+
+            <!-- Duplicate logos for seamless scrolling -->
+            <div class="partner-logo" aria-hidden="true">
+              <img src="images/mercedes-logo.svg" alt="">
+            </div>
+
+            <div class="partner-logo" aria-hidden="true">
+              <img src="images/bmw-logo.svg" alt="">
+            </div>
+
+            <div class="partner-logo" aria-hidden="true">
+              <img src="images/porsche-logo.svg" alt="">
+            </div>
+
+            <div class="partner-logo" aria-hidden="true">
+              <img src="images/audi-logo.svg" alt="">
+            </div>
+
+            <div class="partner-logo" aria-hidden="true">
+              <img src="images/lexus-logo.svg" alt="">
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- 04. ABOUT STACKLY -->
+      <section class="brand-intro section-padding" id="our-brand">
+        <div class="about-layout">
+
+          <div class="about-image">
+            <img src="images/about-car.webp"
+              alt="Luxury automobile representing the STACKLY experience"
+              loading="lazy">
+
+            <div class="about-image-label">
+              <span class="label-number">01</span>
+              <span>THE STACKLY PHILOSOPHY</span>
+            </div>
+          </div>
+
+          <div class="about-content">
+            <p class="eyebrow">MORE THAN AN AUTOMOBILE</p>
+
+            <h2>Driven by Passion.<br><span>Defined by Excellence.</span></h2>
+
+            <p>
+              At STACKLY, luxury is more than a destination.
+              It is the feeling of discovering a vehicle that reflects
+              your personality, ambition and appreciation for fine design.
+            </p>
+
+            <p>
+              Our vision is to bring automotive enthusiasts closer to
+              exceptional vehicles through carefully curated collections,
+              personalised assistance and a premium customer experience.
+            </p>
+
+            <div class="about-highlights">
+              <div>
+                <strong>01</strong>
+                <span>Curated Collections</span>
+              </div>
+              <div>
+                <strong>02</strong>
+                <span>Personalised Service</span>
+              </div>
+              <div>
+                <strong>03</strong>
+                <span>Premium Experience</span>
+              </div>
+            </div>
+
+            <a href="404.html" class="btn btn-gold">Our Story ↗</a>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- 05. PREMIUM SERVICES -->
+      <section class="services-section section-padding" id="services">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">CARE BEYOND EXPECTATIONS</p>
+            <h2>Our Premium <span>Services</span></h2>
+          </div>
+
+          <a href="404.html" class="text-link">All Services ↗</a>
+        </div>
+
+        <p class="section-description">
+          Personalised automotive assistance designed around your needs.
+        </p>
+
+        <div class="service-grid">
+
+          <article class="service-card">
+            <span class="service-number">01</span>
+            <div class="service-image">
+              <img src="images/personalised-assistance.webp"
+                alt="Personalised luxury car consultation"
+                loading="lazy">
+            </div>
+            <h3>Personalised Assistance</h3>
+            <p>
+              Get guidance to explore vehicles that match your preferences,
+              lifestyle and driving requirements.
+            </p>
+            <a href="404.html" class="text-link">Discover More ↗</a>
+          </article>
+
+          <article class="service-card">
+            <span class="service-number">02</span>
+            <div class="service-image">
+              <img src="images/vehicle-care.webp"
+                alt="Professional luxury vehicle care"
+                loading="lazy">
+            </div>
+            <h3>Vehicle Care</h3>
+            <p>
+              Explore maintenance, inspection and care options to help
+              keep your vehicle in excellent condition.
+            </p>
+            <a href="404.html" class="text-link">Discover More ↗</a>
+          </article>
+
+          <article class="service-card">
+            <span class="service-number">03</span>
+            <div class="service-image">
+              <img src="images/premium-experiences.webp"
+                alt="Premium luxury automotive experience"
+                loading="lazy">
+            </div>
+            <h3>Premium Experiences</h3>
+            <p>
+              Discover curated vehicle experiences and assistance
+              throughout your automotive journey.
+            </p>
+            <a href="404.html" class="text-link">Discover More ↗</a>
+          </article>
+
+          <article class="service-card">
+            <span class="service-number">04</span>
+            <div class="service-image">
+              <img src="images/dedicated-support.webp"
+                alt="Dedicated automotive customer support"
+                loading="lazy">
+            </div>
+            <h3>Dedicated Support</h3>
+            <p>
+              Connect with our team for enquiries, vehicle information
+              and personalised assistance.
+            </p>
+            <a href="404.html" class="text-link">Discover More ↗</a>
+          </article>
+
+        </div>
+
+        <!-- SERVICE BANNER + VIDEO PREVIEWS -->
+        <div class="service-showcase">
+
+          <div class="service-banner">
+            <div class="service-banner-image">
+              <img src="images/service-car.webp"
+                alt="Luxury car in a premium automotive setting"
+                loading="lazy">
+            </div>
+
+            <div class="service-banner-content">
+              <p class="eyebrow">YOUR JOURNEY, OUR PRIORITY</p>
+              <h3>Exceptional Cars.<br>Exceptional Care.</h3>
+              <p>Discover a more personal approach to automotive excellence.</p>
+              <a href="404.html" class="btn btn-gold">Speak to Our Team ↗</a>
+            </div>
+          </div>
+
+          <!-- CLICKING THESE CARDS OPENS 404.HTML -->
+          <div class="service-video-list">
+
+            <a href="404.html" class="service-video-card">
+              <div class="service-video-thumb">
+                <img src="images/service-car.webp"
+                  alt="Premium car service preview"
+                  loading="lazy">
+                <span class="service-video-play" aria-hidden="true">▶</span>
+                <span class="service-video-label">01 / SERVICE</span>
+              </div>
+              <div class="service-video-info">
+                <span class="eyebrow">EXPERT CARE</span>
+                <h4>Premium Car Service</h4>
+                <span class="service-video-link">WATCH PREVIEW ↗</span>
+              </div>
+            </a>
+
+            <a href="404.html" class="service-video-card">
+              <div class="service-video-thumb">
+                <img src="images/hero-car.webp"
+                  alt="Luxury car detailing preview"
+                  loading="lazy">
+                <span class="service-video-play" aria-hidden="true">▶</span>
+                <span class="service-video-label">02 / DETAILING</span>
+              </div>
+              <div class="service-video-info">
+                <span class="eyebrow">PERFECT FINISH</span>
+                <h4>Luxury Car Detailing</h4>
+                <span class="service-video-link">WATCH PREVIEW ↗</span>
+              </div>
+            </a>
+
+            <a href="404.html" class="service-video-card">
+              <div class="service-video-thumb">
+                <img src="images/service-car.webp"
+                  alt="Luxury vehicle maintenance preview"
+                  loading="lazy">
+                <span class="service-video-play" aria-hidden="true">▶</span>
+                <span class="service-video-label">03 / MAINTENANCE</span>
+              </div>
+              <div class="service-video-info">
+                <span class="eyebrow">PEACE OF MIND</span>
+                <h4>Complete Maintenance</h4>
+                <span class="service-video-link">WATCH PREVIEW ↗</span>
+              </div>
+            </a>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- 06. AUTOMOTIVE NEWS -->
+      <section class="news-section section-padding" id="news">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">THE AUTOMOTIVE WORLD</p>
+            <h2>Latest <span>Insights</span></h2>
+          </div>
+
+          <a href="404.html" class="text-link">Explore News ↗</a>
+        </div>
+
+        <p class="section-description">
+          Explore automotive design, innovation and industry highlights.
+          Visit the News page for more stories.
+        </p>
+
+        <div class="news-grid">
+
+          <article class="news-card">
+            <div class="news-image">
+              <img src="images/mercedes-benz.webp" alt="Mercedes-Benz luxury car" loading="lazy">
+              <span class="news-category">LUXURY</span>
+            </div>
+            <div class="news-content">
+              <p class="news-meta">DESIGN &amp; INNOVATION</p>
+              <h3>The Evolution of Modern Luxury</h3>
+              <p>
+                Discover how contemporary design and technology are
+                shaping the luxury driving experience.
+              </p>
+              <a href="404.html" class="text-link">Read Story ↗</a>
+            </div>
+          </article>
+
+          <article class="news-card">
+            <div class="news-image">
+              <img src="images/bmw.webp" alt="BMW performance car" loading="lazy">
+              <span class="news-category">PERFORMANCE</span>
+            </div>
+            <div class="news-content">
+              <p class="news-meta">ENGINEERING</p>
+              <h3>Engineering the Driving Experience</h3>
+              <p>
+                A closer look at the ideas behind responsive handling,
+                performance and driver-focused design.
+              </p>
+              <a href="404.html" class="text-link">Read Story ↗</a>
+            </div>
+          </article>
+
+          <article class="news-card">
+            <div class="news-image">
+              <img src="images/porsche.webp" alt="Porsche sports car" loading="lazy">
+              <span class="news-category">SPORTS CARS</span>
+            </div>
+            <div class="news-content">
+              <p class="news-meta">AUTOMOTIVE CULTURE</p>
+              <h3>Why Iconic Sports Cars Endure</h3>
+              <p>
+                Explore the timeless proportions and performance
+                philosophies that inspire automotive enthusiasts.
+              </p>
+              <a href="404.html" class="text-link">Read Story ↗</a>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+      <!-- 07. CONTACT CTA -->
+      <section class="experience-section section-padding" id="contact">
+        <div class="experience-content">
+          <p class="eyebrow">YOUR NEXT JOURNEY STARTS HERE</p>
+          <h2>Ready to Experience<br><span>Something Extraordinary?</span></h2>
+          <p>
+            Tell us what you are looking for. Our team is ready to help
+            you explore the STACKLY automotive experience.
+          </p>
+
+          <div class="experience-actions">
+            <a href="404.html" class="btn btn-gold">Contact Us ↗</a>
+            <a href="404.html" class="btn btn-outline">Explore Models</a>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+      <div class="footer-main">
+
+        <div class="footer-brand">
+          <a href="index.html" class="logo" aria-label="STACKLY Home">
+            <span class="logo-name">STACKLY</span>
+            <span class="logo-caption">LUXURY AUTOMOTIVE</span>
+          </a>
+
+          <p>
+            A passion for extraordinary automobiles,
+            refined design and exceptional experiences.
+          </p>
+
+          <!-- SOCIAL LINKS: ALL OPEN 404.HTML -->
+          <div class="social-links">
+
+            <a href="404.html" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="3" y="3" width="18" height="18" rx="5"/>
+                <circle cx="12" cy="12" r="4"/>
+                <circle class="icon-fill" cx="17.5" cy="6.7" r="1"/>
+              </svg>
+            </a>
+
+            <a href="404.html" aria-label="Facebook">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M14 21v-8h3l.5-4H14V7c0-1.2.4-2 2-2h2V1.4C17.3 1.2 16.3 1 15 1c-3.3 0-5 2-5 5.5V9H7v4h3v8z" fill="currentColor" stroke="none"/>
+              </svg>
+            </a>
+
+            <a href="404.html" aria-label="YouTube">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M22 12s0-4-1-5-4-1-9-1-8 0-9 1-1 5-1 5 0 4 1 5 4 1 9 1 8 0 9-1 1-5 1-5z"/>
+                <path d="m10 9 5 3-5 3z" fill="currentColor" stroke="none"/>
+              </svg>
+            </a>
+
+            <a href="404.html" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M5 9v10M5 5v.1M10 19v-6c0-2 1-4 3.5-4s4 1.5 4 4v6M10 9v10" stroke-width="2.5"/>
+                <circle class="icon-fill" cx="5" cy="5" r="1.5"/>
+              </svg>
+            </a>
+
+          </div>
+        </div>
+
+        <div class="footer-column">
+          <h3>Quick Links</h3>
+          <a href="index.html">Home</a>
+          <a href="collections.html">Collections</a>
+          <a href="about.html">About STACKLY</a>
+          <a href="services.html">Services</a>
+          <a href="news.html">News</a>
+          <a href="contact.html">Contact Us</a>
+        </div>
+
+        <div class="footer-column">
+          <h3>Explore</h3>
+          <a href="404.html">Our Story</a>
+          <a href="404.html">Contact Us</a>
+          <a href="services.html">Vehicle Care</a>
+          <a href="collections.html">Featured Models</a>
+        </div>
+
+        <div class="footer-column footer-contact">
+          <h3>Get in Touch</h3>
+          <p>Have a question about our collections or services?</p>
+          <a href="404.html" class="text-link">Send an Enquiry ↗</a>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <p>© <span id="currentYear">2026</span> STACKLY. All rights reserved.</p>
+        <p>CRAFTED FOR THE EXTRAORDINARY.</p>
+      </div>
+    </footer>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

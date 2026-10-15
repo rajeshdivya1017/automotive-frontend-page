@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 520">
+<path d="M45 28 Q210 4 375 28 L354 335 Q337 420 210 492 Q83 420 66 335 Z" fill="#d5a83b" stroke="#151515" stroke-width="12"/>
+<path d="M68 48 L352 48 L340 164 L80 164 Z" fill="#b82025" stroke="#151515" stroke-width="7"/>
+<text x="210" y="105" text-anchor="middle" font-family="Georgia,serif" font-size="46" font-weight="bold" fill="#f7f0d5" stroke="#151515" stroke-width="1">PORSCHE</text>
+<path d="M87 178 L333 178 L325 329 Q314 395 210 458 Q106 395 95 329 Z" fill="#f5e5a5" stroke="#151515" stroke-width="7"/>
+<path d="M90 186 H146 V325 L160 355 L146 386 L112 367 L95 325 Z" fill="#b82025"/>
+<path d="M274 186 H330 L325 325 L308 367 L274 386 L260 355 L274 325 Z" fill="#b82025"/>
+<path d="M148 186 H204 V264 H148 Z M216 186 H272 V264 H216 Z" fill="#151515"/>
+<path d="M148 276 H204 V354 H148 Z M216 276 H272 V354 H216 Z" fill="#151515"/>
+<path d="M180 366 Q168 339 184 319 L194 287 L208 302 L220 282 L230 304 L245 296 L239 326 L254 341 L246 362 L225 376 L225 397 L203 397 L203 375 Z" fill="#151515"/>
+<path d="M202 299 L199 274 L213 256 L229 266 L226 291 L215 307 Z" fill="#151515"/>
+<text x="210" y="438" text-anchor="middle" font-family="Georgia,serif" font-size="28" font-weight="bold" fill="#151515">STUTTGART</text>
+</svg>

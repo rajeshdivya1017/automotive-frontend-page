@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>STACKLY | Luxury Car Collections</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #080808;
+      color: #f5f5f5;
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    .collection-page {
+      max-width: 1400px;
+      margin: auto;
+      padding: 65px 6%;
+    }
+
+    .collection-heading {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .collection-heading .eyebrow {
+      color: #d4af37;
+      letter-spacing: 5px;
+      font-size: 12px;
+    }
+
+    .collection-heading h1 {
+      font-size: clamp(32px, 5vw, 55px);
+      margin: 15px 0;
+    }
+
+    .collection-heading h1 span {
+      color: #d4af37;
+    }
+
+    .collection-heading p {
+      color: #aaa;
+      line-height: 1.7;
+    }
+
+    .filter-panel {
+      background: #111;
+      border: 1px solid #29251a;
+      padding: 22px;
+      border-radius: 12px;
+      margin-bottom: 28px;
+    }
+
+    .filter-row {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .filter-panel input,
+    .filter-panel select {
+      width: 100%;
+      min-width: 0;
+      padding: 13px;
+      border-radius: 6px;
+      border: 1px solid #393939;
+      background: #080808;
+      color: white;
+      outline: none;
+    }
+
+    .filter-panel input:focus,
+    .filter-panel select:focus {
+      border-color: #d4af37;
+    }
+
+    .filter-actions {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin-top: 16px;
+      flex-wrap: wrap;
+    }
+
+    .result-count {
+      color: #d4af37;
+      font-size: 14px;
+    }
+
+    .clear-btn,
+    .spec-btn {
+      background: #d4af37;
+      color: #080808;
+      border: none;
+      padding: 11px 17px;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 4px;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .car-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    .car-card {
+      background: #111;
+      border: 1px solid #292929;
+      border-radius: 10px;
+      overflow: hidden;
+      transition: transform 0.3s, border-color 0.3s;
+    }
+
+    .car-card:hover {
+      transform: translateY(-6px);
+      border-color: #d4af37;
+    }
+
+    .car-image {
+      height: 210px;
+      background: #1a1a1a;
+      overflow: hidden;
+    }
+
+    .car-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s;
+    }
+
+    .car-card:hover .car-image img {
+      transform: scale(1.06);
+    }
+
+    .car-details {
+      padding: 20px;
+    }
+
+    .car-category {
+      color: #d4af37;
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .car-details h2 {
+      font-size: 21px;
+      margin: 12px 0;
+    }
+
+    .car-price {
+      color: #d4af37;
+      font-size: 22px;
+      font-weight: bold;
+      margin: 12px 0;
+    }
+
+    .car-info {
+      color: #aaa;
+      font-size: 13px;
+      line-height: 1.8;
+      margin-bottom: 18px;
+    }
+
+    .spec-btn {
+      width: 100%;
+      text-align: center;
+    }
+
+    .spec-btn:hover,
+    .clear-btn:hover {
+      background: #f0d477;
+    }
+
+    .empty-message {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 45px 10px;
+      color: #aaa;
+      border: 1px dashed #444;
+      border-radius: 8px;
+    }
+
+    .pagination {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 42px;
+    }
+
+    .page-btn {
+      min-width: 42px;
+      padding: 12px;
+      border: 1px solid #393939;
+      background: #111;
+      color: white;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+
+    .page-btn.active,
+    .page-btn:hover {
+      background: #d4af37;
+      color: #080808;
+      border-color: #d4af37;
+    }
+
+    .page-btn:disabled {
+      opacity: 0.35;
+      cursor: not-allowed;
+    }
+
+    @media (max-width: 900px) {
+      .car-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .filter-row {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 560px) {
+      .collection-page {
+        padding: 40px 5%;
+      }
+
+      .car-grid,
+      .filter-row {
+        grid-template-columns: 1fr;
+      }
+
+      .car-image {
+        height: 220px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- STACKLY PRELOADER -->
+  <div class="preloader" id="preloader">
+    <div class="brand">STACKLY</div>
+    <p class="tagline">DRIVEN BY INNOVATION</p>
+
+    <div class="road">
+      <div class="light-trail"></div>
+
+      <div class="car">
+        <svg viewBox="0 0 200 80" width="200" aria-label="Moving car">
+          <path d="M20 51 L31 35 L62 30 L82 12 L131 12 L153 32 L177 39 L187 51 L184 62 L17 62 Z"
+                fill="#d4af37"/>
+          <path d="M69 30 L87 17 L126 17 L143 31 Z"
+                fill="#111"/>
+          <circle cx="49" cy="60" r="14" fill="#222" stroke="#d4af37" stroke-width="4"/>
+          <circle cx="151" cy="60" r="14" fill="#222" stroke="#d4af37" stroke-width="4"/>
+        </svg>
+      </div>
+    </div>
+
+    <div class="loading-info">
+      <span>INITIALIZING EXPERIENCE</span>
+      <span id="percentage">0%</span>
+    </div>
+
+    <div class="progress-track">
+      <div class="progress-bar" id="progressBar"></div>
+    </div>
+
+    <p class="loading-note">THE ART OF PERFORMANCE</p>
+  </div>
+
+  <!-- WEBSITE CONTENT -->
+  <div class="website" id="website">
+
+    <header class="navbar">
+      <a class="logo" href="index.html">STACKLY<span>.</span></a>
+
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="collections.html">Collections</a>
+        <a href="services.html">Services</a>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+
+      <a class="book-button" href="contact.html">BOOK A DRIVE</a>
+    </header>
+
+    <main class="collection-page">
+
+      <section class="collection-heading">
+        <p class="eyebrow">DISCOVER YOUR DRIVE</p>
+        <h1>Our Car <span>Collections</span></h1>
+        <p>Explore exceptional design, performance and luxury.</p>
+      </section>
+
+      <!-- SEARCH AND FILTERS -->
+      <section class="filter-panel">
+        <div class="filter-row">
+
+          <input
+            type="search"
+            id="searchCar"
+            placeholder="Search car or brand..."
+            aria-label="Search cars"
+          >
+
+          <select id="brandFilter" aria-label="Filter by brand">
+            <option value="">All Brands</option>
+            <option value="BMW">BMW</option>
+            <option value="Mercedes-Benz">Mercedes-Benz</option>
+            <option value="Audi">Audi</option>
+            <option value="Porsche">Porsche</option>
+            <option value="Lamborghini">Lamborghini</option>
+            <option value="Toyota">Toyota</option>
+            <option value="Honda">Honda</option>
+            <option value="Hyundai">Hyundai</option>
+            <option value="Tata">Tata</option>
+          </select>
+
+          <select id="categoryFilter" aria-label="Filter by category">
+            <option value="">All Categories</option>
+            <option value="Sedan">Sedan</option>
+            <option value="SUV">SUV</option>
+            <option value="Hatchback">Hatchback</option>
+            <option value="Sports">Sports</option>
+          </select>
+
+          <select id="variantFilter" aria-label="Filter by variant">
+            <option value="">All Variants</option>
+            <option value="Basic">Basic</option>
+            <option value="Mid">Mid</option>
+            <option value="Top">Top</option>
+          </select>
+
+          <select id="priceFilter" aria-label="Filter by price">
+            <option value="">All Prices</option>
+            <option value="under20">Under ₹20 lakh</option>
+            <option value="20to50">₹20–50 lakh</option>
+            <option value="50to100">₹50 lakh–₹1 crore</option>
+            <option value="over100">Above ₹1 crore</option>
+          </select>
+
+          <select id="sortFilter" aria-label="Sort by price">
+            <option value="">Default Order</option>
+            <option value="low">Price: Low to High</option>
+            <option value="high">Price: High to Low</option>
+          </select>
+
+        </div>
+
+        <div class="filter-actions">
+          <span class="result-count" id="resultCount">
+            Loading cars...
+          </span>
+
+          <button class="clear-btn" id="clearFilters" type="button">
+            Clear Filters
+          </button>
+        </div>
+      </section>
+
+      <!-- CAR CARDS WILL APPEAR HERE -->
+      <section class="car-grid" id="carGrid"></section>
+
+      <!-- PAGINATION -->
+      <div class="pagination" id="pagination"></div>
+
+    </main>
+
+  </div>
+
+  <script src="script.js"></script>
+  <script src="collections.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>404 | STACKLY Luxury Automotive</title>
+
+  <meta
+    name="description"
+    content="The road ends here. Return to the STACKLY luxury automotive experience."
+  >
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="404.css">
+</head>
+
+<body class="error-page">
+
+  <main class="error-container">
+
+    <!-- STACKLY LOGO -->
+    <a href="index.html" class="error-logo">
+      <span>STACKLY</span>
+      <small>LUXURY AUTOMOTIVE</small>
+    </a>
+
+    <!-- DAMAGED CAR VISUAL -->
+    <div class="error-car-visual">
+
+      <svg
+        viewBox="0 0 600 240"
+        xmlns="http://www.w3.org/2000/svg"
+        role="img"
+        aria-label="Damaged luxury sports car illustration"
+      >
+
+        <!-- Ground shadow -->
+        <ellipse
+          cx="300"
+          cy="205"
+          rx="230"
+          ry="16"
+          fill="#d4af37"
+          opacity="0.12"
+        />
+
+        <!-- Car body -->
+        <path
+          d="M65 160
+             L90 132
+             L165 115
+             L220 70
+             Q238 55 270 55
+             L365 62
+             Q390 65 415 100
+             L485 122
+             L530 150
+             L535 175
+             L495 184
+             L105 184
+             L68 174 Z"
+          fill="#171717"
+          stroke="#d4af37"
+          stroke-width="3"
+          stroke-linejoin="round"
+        />
+
+        <!-- Front windshield -->
+        <path
+          d="M180 112 L235 72 L275 72 L275 112 Z"
+          fill="#252525"
+          stroke="#777"
+          stroke-width="2"
+        />
+
+        <!-- Rear windshield -->
+        <path
+          d="M290 72
+             L360 77
+             Q380 80 400 112
+             L290 112 Z"
+          fill="#252525"
+          stroke="#777"
+          stroke-width="2"
+        />
+
+        <!-- Side body line -->
+        <path
+          d="M115 145 L205 137 L390 137 L470 151"
+          fill="none"
+          stroke="#d4af37"
+          stroke-width="3"
+        />
+
+        <!-- Damaged front bumper -->
+        <path
+          d="M465 145
+             L505 153
+             L520 169
+             L492 174
+             L480 164
+             L467 175
+             L455 163"
+          fill="#101010"
+          stroke="#d4af37"
+          stroke-width="2"
+          stroke-linejoin="round"
+        />
+
+        <!-- Broken headlight -->
+        <path
+          d="M465 126 L494 137 L480 146 L458 139 Z"
+          fill="#d4af37"
+          opacity="0.8"
+        />
+
+        <path
+          d="M465 126 L472 136 L463 141 L480 146"
+          fill="none"
+          stroke="#080808"
+          stroke-width="3"
+        />
+
+        <!-- Windshield cracks -->
+        <path
+          d="M326 77 L313 91 L327 96 L317 109"
+          fill="none"
+          stroke="#d4af37"
+          stroke-width="2"
+        />
+
+        <path
+          d="M313 91 L299 88 L292 99"
+          fill="none"
+          stroke="#d4af37"
+          stroke-width="2"
+        />
+
+        <!-- Front wheel -->
+        <circle
+          cx="160"
+          cy="177"
+          r="32"
+          fill="#080808"
+          stroke="#777"
+          stroke-width="5"
+        />
+
+        <circle
+          cx="160"
+          cy="177"
+          r="17"
+          fill="#222"
+          stroke="#d4af37"
+          stroke-width="3"
+        />
+
+        <!-- Rear wheel -->
+        <circle
+          cx="440"
+          cy="177"
+          r="32"
+          fill="#080808"
+          stroke="#777"
+          stroke-width="5"
+        />
+
+        <circle
+          cx="440"
+          cy="177"
+          r="17"
+          fill="#222"
+          stroke="#d4af37"
+          stroke-width="3"
+        />
+
+        <!-- Wheel spokes -->
+        <g
+          stroke="#d4af37"
+          stroke-width="2"
+        >
+          <path d="M160 162 V192 M145 177 H175" />
+          <path d="M440 162 V192 M425 177 H455" />
+        </g>
+
+        <!-- Broken car debris -->
+        <path
+          d="M505 193 L517 198 L509 205 Z"
+          fill="#d4af37"
+          opacity="0.7"
+        />
+
+        <path
+          d="M480 199 L488 202 L483 207 Z"
+          fill="#d4af37"
+          opacity="0.5"
+        />
+
+        <!-- Road reflection -->
+        <path
+          d="M100 215 L220 215 M350 215 L470 215"
+          stroke="#d4af37"
+          stroke-width="1"
+          opacity="0.3"
+        />
+
+      </svg>
+
+    </div>
+
+    <!-- ERROR MESSAGE -->
+    <section class="error-content">
+
+      <p class="error-eyebrow">
+        OFF THE BEATEN ROAD
+      </p>
+
+      <h1>404</h1>
+
+      <h2>PAGE NOT FOUND</h2>
+
+      <p class="error-description">
+        Looks like this road has reached its end.
+        The page you are looking for may have moved
+        or no longer exists.
+      </p>
+
+      <!-- ACTION BUTTONS -->
+      <div class="error-actions">
+
+        <button
+          type="button"
+          class="error-btn error-btn-outline"
+          onclick="goBack()"
+        >
+          &larr; BACK
+        </button>
+
+        <a
+          href="index.html"
+          class="error-btn error-btn-gold"
+        >
+          BACK TO HOME &nearr;
+        </a>
+
+      </div>
+
+    </section>
+
+    <!-- FOOTER -->
+    <p class="error-footer">
+      STACKLY — CRAFTED FOR THE EXTRAORDINARY
+    </p>
+
+  </main>
+
+  <script>
+    function goBack() {
+      if (window.history.length > 1) {
+        window.history.back();
+      } else {
+        window.location.href = "index.html";
+      }
+    }
+  </script>
+
+</body>
+</html>
