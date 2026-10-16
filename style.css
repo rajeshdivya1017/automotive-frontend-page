@@ -2325,6 +2325,55 @@ button:focus-visible {
   }
 }
 
+/* STACKLY Logo - Header and Footer */
+.navbar .logo img,
+.footer-brand .logo img {
+display: block;
+width: 150px;
+max-width: 100%;
+height: auto;
+object-fit: contain;
+}
+
+.navbar .logo,
+.footer-brand .logo {
+display: inline-flex;
+align-items: center;
+text-decoration: none;
+}
+
+@media (max-width: 768px) {
+.navbar .logo img,
+.footer-brand .logo img {
+width: 125px;
+}
+}
+
+/* FOOTER LOGO - LARGER SIZE */
+.footer-brand .logo {
+  display: inline-flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.footer-brand .logo img {
+  width: 200px;
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* MOBILE LOGO SIZE */
+@media (max-width: 768px) {
+  .footer-brand .logo img {
+    width: 175px;
+  }
+}
+
+/* ========================================
+   MOBILE MENU — PREVENT BACKGROUND SCROLL
+======================================== */
+
 body.menu-open {
   overflow: hidden;
 }
