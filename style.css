@@ -2324,3 +2324,7 @@ button:focus-visible {
     font-size: 6px;
   }
 }
+
+body.menu-open {
+  overflow: hidden;
+}
