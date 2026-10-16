@@ -66,7 +66,6 @@ function startPreloader() {
 }
 
 
-
 function finishPreloader() {
   if (!preloader || !website) return;
 
@@ -89,6 +88,9 @@ function closeMobileMenu() {
   menuToggle.classList.remove("open");
   navMenu.classList.remove("open");
 
+  
+  document.body.classList.remove("menu-open");
+
   menuToggle.setAttribute("aria-expanded", "false");
 
   menuToggle.setAttribute(
@@ -97,6 +99,7 @@ function closeMobileMenu() {
   );
 }
 
+
 if (menuToggle && navMenu) {
   menuToggle.setAttribute("aria-expanded", "false");
 
@@ -104,6 +107,9 @@ if (menuToggle && navMenu) {
     const isOpen = navMenu.classList.toggle("open");
 
     menuToggle.classList.toggle("open", isOpen);
+
+    
+    document.body.classList.toggle("menu-open", isOpen);
 
     menuToggle.setAttribute(
       "aria-expanded",
@@ -118,10 +124,13 @@ if (menuToggle && navMenu) {
     );
   });
 
+
   navMenu.querySelectorAll("a").forEach(function (link) {
     link.addEventListener("click", closeMobileMenu);
   });
 
+
+  
   document.addEventListener("click", function (event) {
     if (
       navMenu.classList.contains("open") &&
@@ -132,6 +141,7 @@ if (menuToggle && navMenu) {
     }
   });
 
+
   window.addEventListener("resize", function () {
     if (window.innerWidth > 760) {
       closeMobileMenu();
@@ -140,11 +150,10 @@ if (menuToggle && navMenu) {
 }
 
 
-
 document.querySelectorAll("a[href]").forEach(function (link) {
   link.addEventListener("click", function (event) {
-    /* Allow browser shortcuts and new-tab behaviour */
 
+    /* Allow browser shortcuts and new-tab behaviour */
     if (
       event.button !== 0 ||
       event.ctrlKey ||
@@ -177,37 +186,28 @@ document.querySelectorAll("a[href]").forEach(function (link) {
       return;
     }
 
-    
-
+    /* Ignore external websites */
     if (target.origin !== window.location.origin) {
       return;
     }
 
-    
-
+    /* Ignore the current page URL */
     if (target.href === window.location.href) {
       return;
     }
 
-    
-
     closeMobileMenu();
-
-    
 
     const currentPath = window.location.pathname.toLowerCase();
 
+    /* Preserve the existing 404 back-navigation fix */
     if (currentPath.endsWith("/404.html")) {
       return;
     }
 
-    
-
     if (!preloader || !website) {
       return;
     }
-
-    
 
     if (navigationStarted) {
       event.preventDefault();
@@ -224,7 +224,7 @@ document.querySelectorAll("a[href]").forEach(function (link) {
         "yes"
       );
     } catch (error) {
-      
+      /* Continue navigation if sessionStorage is unavailable */
     }
 
     startPreloader();
@@ -234,6 +234,7 @@ document.querySelectorAll("a[href]").forEach(function (link) {
     }, duration);
   });
 });
+
 
 
 if (currentYear) {
@@ -255,6 +256,7 @@ try {
   transitionDone = false;
 }
 
+
 if (preloader && website) {
   if (transitionDone) {
     preloader.classList.add("hide");
@@ -272,17 +274,8 @@ if (preloader && website) {
 
 
 window.addEventListener("pageshow", function () {
-  /*
-    Reset the navigation flag whenever the browser
-    displays or restores this page.
-
-    This fixes the case where the user returns
-    from 404.html using the BACK button.
-  */
-
   navigationStarted = false;
 });
-
 
 
 window.addEventListener("pagehide", function () {
