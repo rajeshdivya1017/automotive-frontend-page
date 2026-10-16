@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Send an Enquiry | STACKLY Automotive</title>
+  <meta name="description" content="Contact STACKLY for luxury automotive enquiries, vehicle details, showroom visits and test drives.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --gold: #d4af63;
+      --gold-light: #f0d69b;
+      --black: #080808;
+      --card: #111111;
+      --border: rgba(212, 175, 99, 0.25);
+      --muted: #aaa49a;
+      --red: #ff4d4f;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--black);
+      color: #f5f2eb;
+      font-family: "DM Sans", sans-serif;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .topbar {
+      min-height: 82px;
+      padding: 18px 7%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      border-bottom: 1px solid var(--border);
+      background: #090909;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+    }
+
+    .brand img {
+      width: 55px;
+      height: 55px;
+      object-fit: contain;
+    }
+
+    .brand-name {
+      color: var(--gold);
+      font-family: "Playfair Display", serif;
+      font-size: 27px;
+      font-weight: 700;
+      letter-spacing: 4px;
+    }
+
+    .brand-tagline {
+      display: block;
+      color: #aaa49a;
+      font-size: 9px;
+      letter-spacing: 2.5px;
+    }
+
+    .back-link {
+      color: var(--gold-light);
+      border: 1px solid var(--border);
+      padding: 11px 17px;
+      font-size: 12px;
+      letter-spacing: 1px;
+      transition: 0.3s;
+    }
+
+    .back-link:hover {
+      background: var(--gold);
+      color: #111;
+    }
+
+    .hero {
+      padding: 65px 20px 42px;
+      text-align: center;
+      background:
+        radial-gradient(ellipse at top, rgba(212, 175, 99, 0.11), transparent 65%);
+    }
+
+    .eyebrow {
+      color: var(--gold);
+      font-size: 11px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      margin-bottom: 15px;
+    }
+
+    .hero h1 {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(34px, 5vw, 57px);
+      line-height: 1.2;
+      font-weight: 500;
+      margin-bottom: 17px;
+    }
+
+    .hero h1 span {
+      color: var(--gold);
+    }
+
+    .hero p {
+      max-width: 600px;
+      margin: auto;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .form-wrapper {
+      width: min(1000px, 90%);
+      margin: 0 auto 75px;
+      padding: 38px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      box-shadow: 0 25px 70px rgba(0, 0, 0, 0.3);
+    }
+
+    .form-heading {
+      margin-bottom: 30px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .form-heading h2 {
+      font-family: "Playfair Display", serif;
+      font-size: 27px;
+      font-weight: 500;
+      margin-bottom: 5px;
+    }
+
+    .form-heading p {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .required {
+      color: var(--red);
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 23px 25px;
+    }
+
+    .field {
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+    }
+
+    .field.full-width {
+      grid-column: 1 / -1;
+    }
+
+    .field label {
+      color: #e6dfd1;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+
+    .field input,
+    .field select,
+    .field textarea {
+      width: 100%;
+      min-height: 48px;
+      padding: 13px 14px;
+      color: #f5f2eb;
+      background: #090909;
+      border: 1px solid #35312a;
+      border-radius: 2px;
+      outline: none;
+      font: inherit;
+      font-size: 13px;
+      transition: border-color 0.25s, box-shadow 0.25s;
+    }
+
+    .field select {
+      cursor: pointer;
+    }
+
+    .field select option {
+      background: #111;
+      color: #fff;
+    }
+
+    .field textarea {
+      min-height: 115px;
+      resize: vertical;
+    }
+
+    .field input::placeholder,
+    .field textarea::placeholder {
+      color: #777168;
+    }
+
+    .field input:focus,
+    .field select:focus,
+    .field textarea:focus {
+      border-color: var(--gold);
+      box-shadow: 0 0 0 2px rgba(212, 175, 99, 0.1);
+    }
+
+    .field input.input-error {
+      border-color: var(--red);
+      box-shadow: 0 0 0 2px rgba(255, 77, 79, 0.08);
+    }
+
+    .field-error {
+      display: none;
+      color: var(--red);
+      font-size: 11px;
+      line-height: 1.5;
+      margin-top: -3px;
+    }
+
+    .field-error.show {
+      display: block;
+    }
+
+    .form-note {
+      margin: 25px 0 20px;
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    .success-message {
+      display: none;
+      padding: 13px 16px;
+      margin-bottom: 17px;
+      color: #b9f6ca;
+      background: rgba(46, 160, 67, 0.12);
+      border: 1px solid rgba(80, 200, 120, 0.45);
+      font-size: 13px;
+      text-align: center;
+    }
+
+    .success-message.show {
+      display: block;
+    }
+
+    .submit-button {
+      width: 100%;
+      min-height: 53px;
+      padding: 15px 20px;
+      color: #101010;
+      background: linear-gradient(135deg, var(--gold-light), var(--gold));
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      transition: 0.3s;
+    }
+
+    .submit-button:hover {
+      filter: brightness(1.1);
+      transform: translateY(-1px);
+    }
+
+    .submit-button:disabled {
+      cursor: not-allowed;
+      opacity: 0.75;
+      transform: none;
+    }
+
+    footer {
+      padding: 27px 7%;
+      text-align: center;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 11px;
+      letter-spacing: 1px;
+    }
+
+    footer span {
+      color: var(--gold);
+    }
+
+    @media (max-width: 650px) {
+      .topbar {
+        padding: 15px 5%;
+      }
+
+      .brand img {
+        width: 42px;
+        height: 42px;
+      }
+
+      .brand-name {
+        font-size: 21px;
+        letter-spacing: 3px;
+      }
+
+      .brand-tagline {
+        font-size: 7px;
+        letter-spacing: 1.5px;
+      }
+
+      .back-link {
+        padding: 9px 10px;
+        font-size: 10px;
+      }
+
+      .hero {
+        padding: 48px 20px 30px;
+      }
+
+      .form-wrapper {
+        width: 92%;
+        padding: 23px 18px;
+        margin-bottom: 45px;
+      }
+
+      .form-grid {
+        grid-template-columns: 1fr;
+        gap: 19px;
+      }
+
+      .field.full-width {
+        grid-column: auto;
+      }
+
+      .form-heading h2 {
+        font-size: 24px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="topbar">
+    <a class="brand" href="index.html" aria-label="STACKLY Home">
+      <img src="assets/stackly-logo.webp" alt="STACKLY logo">
+      <div>
+        <div class="brand-name">STACKLY</div>
+        <span class="brand-tagline">LUXURY AUTOMOTIVE</span>
+      </div>
+    </a>
+
+    <a href="index.html" class="back-link">← BACK TO HOME</a>
+  </header>
+
+  <section class="hero">
+    <div class="eyebrow">Personalised Automotive Experience</div>
+    <h1>Send an <span>Enquiry</span></h1>
+    <p>
+      Tell us what you're looking for. Our team can help you explore
+      vehicles, arrange a showroom visit and learn about your options.
+    </p>
+  </section>
+
+  <main class="form-wrapper">
+    <div class="form-heading">
+      <h2>Let's Find Your Perfect Drive</h2>
+      <p>Fields marked with <span class="required">*</span> are required.</p>
+    </div>
+
+    <form id="enquiryForm" novalidate>
+      <div class="form-grid">
+
+        <div class="field">
+          <label for="fullName">
+            Full Name <span class="required">*</span>
+          </label>
+          <input
+            id="fullName"
+            name="fullName"
+            type="text"
+            placeholder="Enter your full name"
+            autocomplete="name"
+            required
+          >
+          <small class="field-error" id="nameError" aria-live="polite"></small>
+        </div>
+
+        <div class="field">
+          <label for="email">
+            Email Address <span class="required">*</span>
+          </label>
+          <input
+            id="email"
+            name="email"
+            type="email"
+            placeholder="you@example.com"
+            autocomplete="email"
+            required
+          >
+          <small class="field-error" id="emailError" aria-live="polite"></small>
+        </div>
+
+        <div class="field">
+          <label for="phone">Mobile Number</label>
+          <input
+            id="phone"
+            name="phone"
+            type="tel"
+            placeholder="Enter your mobile number"
+            autocomplete="tel"
+          >
+        </div>
+
+        <div class="field">
+          <label for="city">Your City</label>
+          <input
+            id="city"
+            name="city"
+            type="text"
+            placeholder="Enter your city"
+            autocomplete="address-level2"
+          >
+        </div>
+
+        <div class="field">
+          <label for="vehicleType">1. Vehicle Type</label>
+          <select id="vehicleType" name="vehicleType">
+            <option value="">Select vehicle type</option>
+            <option>Luxury Sedan</option>
+            <option>Sports Car</option>
+            <option>SUV</option>
+            <option>Luxury Coupe</option>
+            <option>Electric Vehicle</option>
+            <option>Not Sure Yet</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="brand">2. Preferred Brand</label>
+          <select id="brand" name="brand">
+            <option value="">Select a brand</option>
+            <option>BMW</option>
+            <option>Mercedes-Benz</option>
+            <option>Porsche</option>
+            <option>Audi</option>
+            <option>Land Rover</option>
+            <option>Other</option>
+            <option>Open to Suggestions</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="budget">3. Estimated Budget</label>
+          <select id="budget" name="budget">
+            <option value="">Select your budget</option>
+            <option>Below ₹10 Lakhs</option>
+            <option>₹10–25 Lakhs</option>
+            <option>₹25–50 Lakhs</option>
+            <option>₹50 Lakhs–1 Crore</option>
+            <option>Above ₹1 Crore</option>
+            <option>Still Exploring</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="condition">4. Vehicle Condition</label>
+          <select id="condition" name="condition">
+            <option value="">Select an option</option>
+            <option>Brand New</option>
+            <option>Pre-Owned</option>
+            <option>Open to Both</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="timeline">5. When Do You Plan to Buy?</label>
+          <select id="timeline" name="timeline">
+            <option value="">Select your timeline</option>
+            <option>Immediately</option>
+            <option>Within 1 Month</option>
+            <option>Within 3 Months</option>
+            <option>Within 6 Months</option>
+            <option>Just Exploring</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="fuel">6. Preferred Powertrain</label>
+          <select id="fuel" name="fuel">
+            <option value="">Select powertrain</option>
+            <option>Petrol</option>
+            <option>Diesel</option>
+            <option>Hybrid</option>
+            <option>Electric</option>
+            <option>No Preference</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="priority">7. Most Important Feature</label>
+          <select id="priority" name="priority">
+            <option value="">Select your priority</option>
+            <option>Performance and Speed</option>
+            <option>Comfort and Luxury</option>
+            <option>Safety Features</option>
+            <option>Fuel Efficiency</option>
+            <option>Technology and Infotainment</option>
+            <option>Design and Appearance</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="finance">8. Payment Preference</label>
+          <select id="finance" name="finance">
+            <option value="">Select payment preference</option>
+            <option>Full Payment</option>
+            <option>Vehicle Loan / Finance</option>
+            <option>Lease Options</option>
+            <option>Need Financial Guidance</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="testDrive">9. Would You Like a Test Drive?</label>
+          <select id="testDrive" name="testDrive">
+            <option value="">Select an option</option>
+            <option>Yes, Please Arrange One</option>
+            <option>Interested, Need More Details</option>
+            <option>Not Right Now</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="visit">10. Preferred Showroom Visit</label>
+          <select id="visit" name="visit">
+            <option value="">Select a preference</option>
+            <option>Weekday</option>
+            <option>Weekend</option>
+            <option>Morning</option>
+            <option>Afternoon</option>
+            <option>Evening</option>
+            <option>Not Decided</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="contactMethod">11. Preferred Contact Method</label>
+          <select id="contactMethod" name="contactMethod">
+            <option value="">Select contact method</option>
+            <option>Email</option>
+            <option>Phone Call</option>
+            <option>WhatsApp</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="tradeIn">12. Do You Have a Vehicle to Exchange?</label>
+          <select id="tradeIn" name="tradeIn">
+            <option value="">Select an option</option>
+            <option>Yes</option>
+            <option>No</option>
+            <option>Would Like to Know More</option>
+          </select>
+        </div>
+
+        <div class="field full-width">
+          <label for="requirements">Additional Requirements</label>
+          <textarea
+            id="requirements"
+            name="requirements"
+            placeholder="Tell us your preferred model, features, questions or anything else we should know..."
+          ></textarea>
+        </div>
+
+      </div>
+
+      <p class="form-note">
+        Your contact details help us respond to your enquiry.
+        This demo form does not send your information to a showroom.
+      </p>
+
+      <div
+        class="success-message"
+        id="successMessage"
+        role="status"
+        aria-live="polite"
+      >
+        ✓ Enquiry Submitted Successfully!
+      </div>
+
+      <button type="submit" class="submit-button" id="submitButton">
+        SUBMIT ENQUIRY&nbsp; ↗
+      </button>
+    </form>
+  </main>
+
+  <footer>
+    © 2026 <span>STACKLY</span> LUXURY AUTOMOTIVE. ALL RIGHTS RESERVED.
+  </footer>
+
+  <script>
+    const enquiryForm = document.getElementById("enquiryForm");
+    const fullName = document.getElementById("fullName");
+    const email = document.getElementById("email");
+    const nameError = document.getElementById("nameError");
+    const emailError = document.getElementById("emailError");
+    const successMessage = document.getElementById("successMessage");
+    const submitButton = document.getElementById("submitButton");
+
+    let redirectTimer = null;
+
+    function showError(input, errorElement, message) {
+      errorElement.textContent = message;
+      errorElement.classList.add("show");
+      input.classList.add("input-error");
+      input.setAttribute("aria-invalid", "true");
+    }
+
+    function clearError(input, errorElement) {
+      errorElement.textContent = "";
+      errorElement.classList.remove("show");
+      input.classList.remove("input-error");
+      input.removeAttribute("aria-invalid");
+    }
+
+    function resetEnquiryPage() {
+      if (redirectTimer) {
+        clearTimeout(redirectTimer);
+        redirectTimer = null;
+      }
+
+      enquiryForm.reset();
+
+      clearError(fullName, nameError);
+      clearError(email, emailError);
+
+      successMessage.classList.remove("show");
+      submitButton.disabled = false;
+      submitButton.textContent = "SUBMIT ENQUIRY ↗";
+    }
+
+    fullName.addEventListener("input", function () {
+      if (fullName.value.trim()) {
+        clearError(fullName, nameError);
+      }
+    });
+
+    email.addEventListener("input", function () {
+      if (!email.value.trim()) {
+        clearError(email, emailError);
+      } else if (email.validity.valid) {
+        clearError(email, emailError);
+      }
+    });
+
+    enquiryForm.addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      clearError(fullName, nameError);
+      clearError(email, emailError);
+
+      successMessage.classList.remove("show");
+
+      let isValid = true;
+
+      if (!fullName.value.trim()) {
+        showError(
+          fullName,
+          nameError,
+          "This field is required."
+        );
+        isValid = false;
+      }
+
+      if (!email.value.trim()) {
+        showError(
+          email,
+          emailError,
+          "This field is required."
+        );
+        isValid = false;
+      } else if (!email.validity.valid) {
+        showError(
+          email,
+          emailError,
+          "Please enter a valid email address."
+        );
+        isValid = false;
+      }
+
+      if (!isValid) {
+        const firstInvalidField =
+          !fullName.value.trim() ? fullName : email;
+
+        firstInvalidField.focus();
+        return;
+      }
+
+      successMessage.classList.add("show");
+      submitButton.disabled = true;
+      submitButton.textContent = "ENQUIRY SUBMITTED ✓";
+
+      redirectTimer = setTimeout(function () {
+        window.location.href = "404.html";
+      }, 2000);
+    });
+
+    // Reset the form when the user returns using browser Back.
+    window.addEventListener("pageshow", function (event) {
+      if (event.persisted) {
+        resetEnquiryPage();
+      }
+    });
+  </script>
+
+</body>
+</html>
